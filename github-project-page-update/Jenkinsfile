@@ -5,9 +5,9 @@ def workerNode = "devel8"
 pipeline {
   environment {
     GITHUB_USER = 'xp-machine-user'
-    GITHUB_TOKEN = credentials(GITHUB_USER)
+    GITHUB_TOKEN = credentials('xp-machine-user')
     CONFLUENCE_USER = 'shm@dbc.dk'
-    CONFLUENCE_TOKEN = credentials(CONFLUENCE_USER)
+    CONFLUENCE_TOKEN = credentials('shm@dbc.dk')
   }
     agent {
         docker {
