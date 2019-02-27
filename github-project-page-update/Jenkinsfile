@@ -6,7 +6,7 @@ pipeline {
     agent {
         docker {
             label workerNode
-            image "python3-deploy-env"
+            image "docker.dbc.dk/python3-deploy-env"
             alwaysPull true
         }
     }
