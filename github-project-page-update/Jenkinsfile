@@ -8,6 +8,8 @@ pipeline {
             label workerNode
             image "docker.dbc.dk/dbc-python3-deploy-env"
             alwaysPull true
+            // We need to be root to apt-get and pip-install packages 
+            args '-u 0:0'
         }
     }
     stages {
