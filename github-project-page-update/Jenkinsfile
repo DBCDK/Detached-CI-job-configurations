@@ -3,6 +3,12 @@
 def workerNode = "devel8"
 
 pipeline {
+  environment {
+    GITHUB_USER = "xp-machine-user"
+    GITHUB_TOKEN = credentials('xp-machine-user')
+    // CONFLUENCE_USER = credentials('')
+    // CONFLUENCE_TOKEN = credentials('')
+  }
     agent {
         docker {
             label workerNode
@@ -15,12 +21,6 @@ pipeline {
     stages {
         stage("update confluence") {
             steps {
-              environment {
-                GITHUB_USER = "xp-machine-user"
-                GITHUB_TOKEN = credentials('xp-machine-user')
-                // CONFLUENCE_USER = credentials('')
-                // CONFLUENCE_TOKEN = credentials('')
-              }
               sh """pip install git+https://github.com/DBCDK/pytools.git
                     github-projects-page 464519179 --verbose --topics ait"""
             }
