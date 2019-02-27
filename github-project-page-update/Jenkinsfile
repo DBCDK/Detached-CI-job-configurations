@@ -4,8 +4,10 @@ def workerNode = "devel8"
 
 pipeline {
   environment {
-    GITHUB_USER = 'xp-machine-user'
-    GITHUB_TOKEN = credentials('xp-machine-user')
+    // GITHUB_USER = 'xp-machine-user'
+    // GITHUB_TOKEN = credentials('xp-machine-user')
+    GITHUB_USER = 'shm@dbc.dk'
+    GITHUB_TOKEN = credentials('shm@dbc.dk')
     CONFLUENCE_USER = 'shm@dbc.dk'
     CONFLUENCE_TOKEN = credentials('shm@dbc.dk')
   }
