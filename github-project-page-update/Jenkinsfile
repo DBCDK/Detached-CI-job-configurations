@@ -13,8 +13,8 @@ pipeline {
     stages {
         stage("update confluence") {
             steps {
-              sh "pip install git+https://github.com/DBCDK/pytools"
-              sh "github-projects-page 464519179 --verbose --topics ait"
+              sh """pip install git+https://github.com/DBCDK/pytools.git
+                    github-projects-page 464519179 --verbose --topics ait"""
             }
         }
     }
