@@ -1,0 +1,21 @@
+#!groovy
+
+def workerNode = "devel8"
+
+pipeline {
+    agent {
+        docker {
+            label workerNode
+            image "python3-deploy-env"
+            alwaysPull true
+        }
+    }
+    stages {
+        stage("update confluence") {
+            steps {
+              sh "pip install git+https://github.com/DBCDK/pytools"
+              sh "github-projects-page 464519179 --verbose --topics ait"
+            }
+        }
+    }
+}
