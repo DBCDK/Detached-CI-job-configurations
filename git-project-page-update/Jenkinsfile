@@ -6,6 +6,7 @@ pipeline {
   environment {
     GITHUB_USER = 'shm'
     GITHUB_TOKEN = credentials('ait_github_token')
+    GITLAB_TOKEN = credentials('ait_gitlab_token')
     CONFLUENCE_USER = 'shm@dbc.dk'
     CONFLUENCE_TOKEN = credentials('ait_confluence_token')
   }
@@ -22,7 +23,7 @@ pipeline {
         stage("update confluence") {
             steps {
               sh """pip install git+https://github.com/DBCDK/pytools.git
-                    github-projects-page 464519179 --verbose --topics ait"""
+                    git-projects-page 464519179 --verbose --topics ait"""
             }
         }
     }
